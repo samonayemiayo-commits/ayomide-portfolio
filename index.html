@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Technical Business Analyst, AI/ML Integration &amp; Change Leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0B2545;
+    --navy-deep: #081B33;
+    --charcoal: #1C1F26;
+    --white: #FFFFFF;
+    --offwhite: #F7F8FA;
+    --slate: #5B6B82;
+    --steel: #3E6B99;
+    --steel-light: #E7EEF5;
+    --line: #DCE2EA;
+    --radius: 3px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--charcoal);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--navy-deep);
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--steel);
+    display:block;
+    margin-bottom:0.9rem;
+  }
+
+  a{color:var(--steel); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  :focus-visible{
+    outline:2px solid var(--steel);
+    outline-offset:3px;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px;
+    margin:0 auto;
+    padding:1.1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--navy-deep);
+    letter-spacing:-0.01em;
+  }
+  .brand span{color:var(--steel);}
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:2.1rem;
+  }
+  nav button{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    background:none;
+    border:none;
+    color:var(--charcoal);
+    cursor:pointer;
+    padding:0.4rem 0;
+    border-bottom:2px solid transparent;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  nav button:hover{color:var(--steel);}
+  nav button.active{
+    color:var(--navy-deep);
+    border-bottom-color:var(--steel);
+  }
+
+  /* ---------- Layout helpers ---------- */
+  .page{display:none;}
+  .page.active{display:block; animation:fadeIn 0.35s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 2rem;}
+  section{padding:5rem 0;}
+  .rule{border-top:1px solid var(--line);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:5.5rem 0 4rem;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:3.5rem;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:2.6rem;
+    line-height:1.15;
+    margin-bottom:0.6rem;
+  }
+  .hero .role{
+    font-size:1.05rem;
+    color:var(--slate);
+    margin-bottom:2.2rem;
+    max-width:34ch;
+  }
+
+  /* signature bridge diagram */
+  .bridge{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.6rem 1.4rem;
+    background:var(--offwhite);
+  }
+  .bridge svg{width:100%; height:auto; display:block;}
+  .bridge-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--slate);
+    letter-spacing:0.03em;
+    margin-top:0.9rem;
+    text-align:center;
+  }
+
+  .value-box{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:2.4rem 2.6rem;
+    border-radius:var(--radius);
+    margin-top:2.8rem;
+  }
+  .value-box .eyebrow{color:#9FC1E0;}
+  .value-box p{
+    font-family:'Fraunces', serif;
+    font-size:1.28rem;
+    line-height:1.5;
+    font-weight:400;
+    max-width:62ch;
+  }
+
+  .bio p{
+    max-width:64ch;
+    color:var(--charcoal);
+    margin-bottom:1.1rem;
+    font-size:1rem;
+  }
+
+  /* ---------- Portfolio ---------- */
+  .project{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .project-head{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:2.4rem 2.6rem;
+  }
+  .project-head .eyebrow{color:#9FC1E0;}
+  .project-head h2{
+    color:var(--white);
+    font-size:1.7rem;
+    margin-bottom:0.7rem;
+  }
+  .project-head p{color:#D7E2EC; max-width:62ch;}
+
+  .project-body{padding:0.5rem 2.6rem 2.6rem;}
+  .field{
+    padding:1.9rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .field:last-of-type{border-bottom:none;}
+  .field-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--steel);
+    display:block;
+    margin-bottom:0.6rem;
+  }
+  .field p{max-width:66ch; color:var(--charcoal);}
+  .field p + p{margin-top:0.7rem;}
+
+  .demo-btn{
+    display:inline-block;
+    margin-top:0.5rem;
+    background:var(--steel);
+    color:var(--white);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    padding:0.85rem 1.6rem;
+    border-radius:var(--radius);
+    transition:background 0.2s ease;
+  }
+  .demo-btn:hover{background:var(--navy);  text-decoration:none;}
+
+  .tools-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+  }
+  .tools-list span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    background:var(--offwhite);
+    border:1px solid var(--line);
+    padding:0.4rem 0.8rem;
+    border-radius:var(--radius);
+    color:var(--navy-deep);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:3.5rem;
+  }
+  .contact-intro h1{font-size:2.1rem; margin-bottom:1rem;}
+  .contact-intro p{color:var(--slate); max-width:38ch;}
+
+  form{display:flex; flex-direction:column; gap:1.4rem;}
+  label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:0.5rem;
+    display:block;
+  }
+  input, textarea{
+    width:100%;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.96rem;
+    padding:0.85rem 1rem;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--offwhite);
+    color:var(--charcoal);
+  }
+  input:focus, textarea:focus{
+    outline:2px solid var(--steel);
+    outline-offset:1px;
+    background:var(--white);
+  }
+  textarea{min-height:140px; resize:vertical;}
+
+  .submit-btn{
+    align-self:flex-start;
+    background:var(--navy-deep);
+    color:var(--white);
+    border:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    padding:0.9rem 1.8rem;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .submit-btn:hover{background:var(--steel);}
+
+  .form-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--slate);
+    margin-top:-0.4rem;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:2.2rem 0;
+  }
+  footer p{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--slate);
+    text-align:center;
+  }
+
+  @media (max-width:760px){
+    .hero-grid, .contact-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2.1rem;}
+    .project-head, .project-body{padding-left:1.5rem; padding-right:1.5rem;}
+    .nav-inner{padding:1rem 1.2rem;}
+    nav ul{gap:1.1rem;}
+    section{padding:3.2rem 0;}
+    .value-box{padding:1.8rem 1.6rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .page.active{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">Ayomide Onayemi <span>·</span> TBA / AI-ML</div>
+    <nav>
+      <ul>
+        <li><button class="nav-link active" data-page="home">Home / About</button></li>
+        <li><button class="nav-link" data-page="portfolio">Portfolio / Projects</button></li>
+        <li><button class="nav-link" data-page="contact">Contact</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= HOME / ABOUT ================= -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Technical Business Analyst</span>
+          <h1>Bridging AI/ML capability with business and human adoption.</h1>
+          <p class="role">Graduate student specializing in AI/ML integration and change leadership.</p>
+
+          <div class="value-box">
+            <span class="eyebrow">Value Proposition</span>
+            <p>I help organizations close the gap between what AI/ML technology can do and what stakeholders actually understand, trust, and adopt. Combining a Technical Business Analyst's grounding in stakeholder communication with hands-on AI/ML build experience, I translate technical capability into business value, and turn change-management research into practical, testable tools rather than theory.</p>
+          </div>
+        </div>
+
+        <div class="bridge">
+          <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing technical complexity translated into business clarity">
+            <rect x="14" y="24" width="120" height="60" rx="3" fill="none" stroke="#0B2545" stroke-width="1.4"/>
+            <text x="74" y="48" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#0B2545">TECHNICAL</text>
+            <text x="74" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#0B2545">COMPLEXITY</text>
+
+            <rect x="206" y="24" width="120" height="60" rx="3" fill="#0B2545" stroke="#0B2545" stroke-width="1.4"/>
+            <text x="266" y="48" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFFFF">BUSINESS</text>
+            <text x="266" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFFFF">CLARITY</text>
+
+            <line x1="134" y1="54" x2="200" y2="54" stroke="#3E6B99" stroke-width="1.6"/>
+            <polygon points="200,49 210,54 200,59" fill="#3E6B99"/>
+
+            <line x1="34" y1="120" x2="306" y2="120" stroke="#DCE2EA" stroke-width="1"/>
+            <text x="34" y="145" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5B6B82">WHAT IT DOES</text>
+            <text x="34" y="162" font-family="IBM Plex Sans, sans-serif" font-size="10" fill="#1C1F26">Explains the change</text>
+
+            <text x="34" y="184" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5B6B82">WHAT ADOPTION NEEDS</text>
+            <text x="34" y="201" font-family="IBM Plex Sans, sans-serif" font-size="10" fill="#1C1F26">Explains why it matters, per audience</text>
+          </svg>
+          <div class="bridge-caption">the translation gap this work is built to close</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div style="padding:4rem 0;">
+      <span class="eyebrow">About</span>
+      <div class="bio">
+        <p>I am a Technical Business Analyst with a background in bridging technical teams and business stakeholders, currently expanding my expertise into AI and machine learning integration and change leadership. My work centers on translating complex technical concepts into clear, actionable insight for non-technical audiences, and on helping organizations adopt new technology in ways that stick.</p>
+        <p>I'm currently building on this foundation through coursework in AI/ML leadership, where I'm developing hands-on experience designing AI tools, applying design thinking to real workplace problems, and studying what separates successful change leadership from well-intentioned change that fails to gain traction.</p>
+        <p>My goal is to become a bridge between technical AI/ML capability and the business and human systems that determine whether that capability actually gets adopted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO / PROJECTS ================= -->
+  <section id="portfolio" class="page">
+    <div style="padding:4.5rem 0 1rem;">
+      <span class="eyebrow">Portfolio</span>
+      <h1 style="font-size:1.9rem; margin-bottom:2.5rem;">Projects</h1>
+
+      <div class="project">
+        <div class="project-head">
+          <span class="eyebrow">Project 01</span>
+          <h2>Stakeholder Communication Translator (AI Chatbot)</h2>
+          <p>An AI-powered chatbot I designed and built to help technical professionals translate complex AI/ML concepts into clear, business-relevant language for non-technical stakeholders.</p>
+          <a class="demo-btn" href="https://www.chatbase.co/1yblFB8LIG0TKZ20fTCTG/help" target="_blank" rel="noopener">View live demo →</a>
+        </div>
+
+        <div class="project-body">
+          <div class="field">
+            <span class="field-label">Description</span>
+            <p>This chatbot takes a technical concept or project update as input, identifies who the audience is, then produces a jargon-free explanation paired with a specific line on why the concept matters to that audience's goals (revenue, efficiency, risk, etc.), and offers to adjust the explanation further.</p>
+            <p>It was designed and tested using a design thinking framework (Empathy, Problem, Ideation, Prototype, Test) in ChatGPT, then deployed as a live, publicly accessible agent on Chatbase.co.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Objective</span>
+            <p>To address a real, recurring problem in AI/ML adoption: technical teams often explain what is changing without explaining why it matters, which stalls stakeholder buy-in. This project let me apply change-leadership research directly to a working tool.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Process</span>
+            <p>I identified the problem through empathy-mapping who is affected (technical staff communicating with non-technical stakeholders), defined a clear problem statement, considered multiple bot ideas before selecting this one, planned the bot's behavior across ten design questions, wrote a structured system prompt using a Context/Task/Constraints framework, and tested it against two different audiences (a VP of Sales and a warehouse operations manager) to confirm it adapted its language and business framing correctly.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Tools &amp; Technologies Used</span>
+            <div class="tools-list">
+              <span>ChatGPT</span>
+              <span>Chatbase.co</span>
+              <span>Design Thinking Methodology</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Value Proposition</span>
+            <p>This artifact demonstrates my ability to identify a real workplace communication gap and build a practical AI tool to solve it, combining technical AI literacy with change-management insight rather than treating them as separate skills.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Unique Value</span>
+            <p>Unlike a generic AI demo, this bot is grounded in actual change-leadership research (the CCL "what vs. why" finding) and was iteratively tested for genuine audience adaptation, not just single-shot output.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Relevance</span>
+            <p>Directly relevant to any role bridging technical and business teams — Business Analyst, Product Manager, or AI Implementation Lead — where translating technical work into stakeholder value is a daily requirement.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">References</span>
+            <p>Center for Creative Leadership. "How to Be a Successful Change Leader." ccl.org.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="page">
+    <div style="padding:4.5rem 0 5rem;">
+      <div class="contact-grid">
+        <div class="contact-intro">
+          <span class="eyebrow">Contact</span>
+          <h1>Let's talk.</h1>
+          <p>Open to conversations about AI/ML adoption, change leadership, and technical–business collaboration.</p>
+        </div>
+
+        <form id="contact-form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What would you like to discuss?" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send message</button>
+          <p class="form-note" id="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 · Technical Business Analyst — AI/ML Integration &amp; Change Leadership</p>
+</footer>
+
+<script>
+  const navLinks = document.querySelectorAll('.nav-link');
+  const pages = document.querySelectorAll('.page');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const target = link.getAttribute('data-page');
+      navLinks.forEach(l => l.classList.remove('active'));
+      pages.forEach(p => p.classList.remove('active'));
+      link.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({top:0, behavior:'instant'});
+    });
+  });
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.textContent = 'This form is a UI preview — connect it to an email service or form backend to receive messages.';
+  });
+</script>
+
+</body>
+</html>
